@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h2><strong>IMPORTANTE Para un envío rápido y seguro por favor llenar todos los datos solicitados.</strong></h2>
+
+    <form id="envioForm">
+        <h3>DESTINATARIO:</h3>
+        <label for="nombres"><strong>NOMBRES Y APELLIDOS COMPLETOS:</strong></label><br>
+        <input type="text" id="nombres" name="nombres" required><br>
+
+        <label for="cedula"><strong>CÉDULA O RUC:</strong></label><br>
+        <input type="text" id="cedula" name="cedula" required><br>
+
+        <label for="telefono"><strong>TELÉFONO CONTACTO:</strong></label><br>
+        <input type="tel" id="telefono" name="telefono" required><br>
+
+        <label for="calle">CALLE PRINCIPAL:</label><br>
+        <input type="text" id="calle" name="calle" required><br>
+
+        <label for="casa">No. DE CASA:</label><br>
+        <input type="text" id="casa" name="casa" required><br>
+
+        <label for="transversal">CALLE TRANSVERSAL:</label><br>
+        <input type="text" id="transversal" name="transversal"><br>
+
+        <label for="sector">SECTOR:</label><br>
+        <input type="text" id="sector" name="sector" required><br>
+
+        <label for="referencia">REFERENCIA:</label><br>
+        <input type="text" id="referencia" name="referencia" required><br>
+
+        <label for="ciudad">CIUDAD:</label><br>
+        <input type="text" id="ciudad" name="ciudad" required><br>
+
+        <label for="provincia">PROVINCIA:</label><br>
+        <input type="text" id="provincia" name="provincia" required><br>
+
+        <label for="cobro">VALOR A COBRAR:</label><br>
+        <input type="text" id="cobro" name="cobro" value="Uso interno" disabled><br>
+
+        <button type="submit" id="enviarDatos">Generar Guía de Envío</button>
+    </form>
+
+    <script>
+        document.getElementById('envioForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(document.getElementById('envioForm'));
+            var mensaje = "NOMBRES Y APELLIDOS: " + formData.get('nombres') + "%0D%0A" +
+                          "CÉDULA O RUC: " + formData.get('cedula') + "%0D%0A" +
+                          "TELÉFONO CONTACTO: " + formData.get('telefono') + "%0D%0A" +
+                          "CALLE PRINCIPAL: " + formData.get('calle') + "%0D%0A" +
+                          "No. DE CASA: " + formData.get('casa') + "%0D%0A" +
+                          "CALLE TRANSVERSAL: " + formData.get('transversal') + "%0D%0A" +
+                          "SECTOR: " + formData.get('sector') + "%0D%0A" +
+                          "REFERENCIA: " + formData.get('referencia') + "%0D%0A" +
+                          "CIUDAD: " + formData.get('ciudad') + "%0D%0A" +
+                          "PROVINCIA: " + formData.get('provincia');
+            window.location.href = "https://wa.me/593980844531?text=" + mensaje;
+        });
+    </script>
+</body>
+</html>
